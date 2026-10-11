@@ -1,0 +1,47 @@
+
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resilientfile"
+version = "0.1.0"
+description = "Reed-Solomon file protection and recovery library"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "ResilientFile Contributors"}
+]
+keywords = [
+    "reed-solomon",
+    "error-correction",
+    "erasure-coding",
+    "file-recovery",
+    "forward-error-correction"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: System :: Archiving"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "build",
+    "twine"
+]
+
+[project.scripts]
+resilientfile = "cli.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["resilientfile*", "core*", "cli*", "mesh_harness*"]
+exclude = ["*.tests", "*.tests.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["core/tests", "mesh_harness/tests"]

@@ -1,0 +1,1 @@
+from core.encoder import encode, generator_polynomial
